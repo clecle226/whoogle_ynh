@@ -173,6 +173,13 @@ ynh_use_logrotate
 ynh_script_progression --message="Finalizing installation..." --weight=1
 #ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
 
+ynh_script_progression --message="Deployement of venv's whoogle ..." --weight=1
+ActualPWD=$PWD
+cd $install_dir
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd $ActualPWD
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
