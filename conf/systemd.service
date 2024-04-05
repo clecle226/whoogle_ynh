@@ -1,15 +1,41 @@
 [Unit]
-Description=Small description of the service
+Description=Whoogle
 After=network.target
 
 [Service]
+# Basic auth configuration, uncomment to enable
+#Environment=WHOOGLE_USER=<username>
+#Environment=WHOOGLE_PASS=<password>
+# Proxy configuration, uncomment to enable
+#Environment=WHOOGLE_PROXY_USER=<proxy username>
+#Environment=WHOOGLE_PROXY_PASS=<proxy password>
+#Environment=WHOOGLE_PROXY_TYPE=<proxy type (http|https|proxy4|proxy5)
+#Environment=WHOOGLE_PROXY_LOC=<proxy host/ip>
+# Site alternative configurations, uncomment to enable
+# Note: If not set, the feature will still be available
+# with default values.
+#Environment=WHOOGLE_ALT_TW=farside.link/nitter
+#Environment=WHOOGLE_ALT_YT=farside.link/invidious
+#Environment=WHOOGLE_ALT_RD=farside.link/libreddit
+#Environment=WHOOGLE_ALT_MD=farside.link/scribe
+#Environment=WHOOGLE_ALT_TL=farside.link/lingva
+#Environment=WHOOGLE_ALT_IMG=farside.link/rimgo
+#Environment=WHOOGLE_ALT_WIKI=farside.link/wikiless
+#Environment=WHOOGLE_ALT_IMDB=farside.link/libremdb
+#Environment=WHOOGLE_ALT_QUORA=farside.link/quetre
+# Load values from dotenv only
+#Environment=WHOOGLE_DOTENV=1
 Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/script
+ExecStart=__INSTALL_DIR__/run
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=3
+SyslogIdentifier=whoogle
 
 ### Depending on specificities of your service/app, you may need to tweak these
 ### .. but this should be a good baseline
