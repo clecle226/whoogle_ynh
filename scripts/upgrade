@@ -101,7 +101,7 @@ ynh_script_progression --message="Upgrading system configurations related to $ap
 
 ### This should be a literal copypaste of what happened in the install's "System configuration" section
 
-ynh_add_fpm_config
+#ynh_add_fpm_config
 
 ynh_add_nginx_config
 
@@ -111,7 +111,7 @@ yunohost service add "$app" --description="A short description of the app" --log
 
 ynh_use_logrotate --non-append
 
-ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+#ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
 
 #=================================================
 # START SYSTEMD SERVICE

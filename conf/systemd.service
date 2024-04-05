@@ -3,28 +3,8 @@ Description=Whoogle
 After=network.target
 
 [Service]
-# Basic auth configuration, uncomment to enable
-#Environment=WHOOGLE_USER=<username>
-#Environment=WHOOGLE_PASS=<password>
-# Proxy configuration, uncomment to enable
-#Environment=WHOOGLE_PROXY_USER=<proxy username>
-#Environment=WHOOGLE_PROXY_PASS=<proxy password>
-#Environment=WHOOGLE_PROXY_TYPE=<proxy type (http|https|proxy4|proxy5)
-#Environment=WHOOGLE_PROXY_LOC=<proxy host/ip>
-# Site alternative configurations, uncomment to enable
-# Note: If not set, the feature will still be available
-# with default values.
-#Environment=WHOOGLE_ALT_TW=farside.link/nitter
-#Environment=WHOOGLE_ALT_YT=farside.link/invidious
-#Environment=WHOOGLE_ALT_RD=farside.link/libreddit
-#Environment=WHOOGLE_ALT_MD=farside.link/scribe
-#Environment=WHOOGLE_ALT_TL=farside.link/lingva
-#Environment=WHOOGLE_ALT_IMG=farside.link/rimgo
-#Environment=WHOOGLE_ALT_WIKI=farside.link/wikiless
-#Environment=WHOOGLE_ALT_IMDB=farside.link/libremdb
-#Environment=WHOOGLE_ALT_QUORA=farside.link/quetre
 # Load values from dotenv only
-#Environment=WHOOGLE_DOTENV=1
+Environment=WHOOGLE_DOTENV=1
 Type=simple
 User=__APP__
 Group=__APP__
