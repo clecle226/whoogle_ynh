@@ -5,11 +5,13 @@ After=network.target
 [Service]
 # Load values from dotenv only
 Environment=WHOOGLE_DOTENV=1
+#Environment=PATH=__INSTALL_DIR__/venv/bin:$PATH
+Environment=PORT=__PORT__
 Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=PATH="__INSTALL_DIR__/venv/bin:$PATH" __INSTALL_DIR__/run
+ExecStart=/bin/bash -c "PATH=__INSTALL_DIR__/venv/bin:$PATH __INSTALL_DIR__/run"
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 ExecReload=/bin/kill -HUP $MAINPID
