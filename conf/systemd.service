@@ -9,7 +9,7 @@ Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/run
+ExecStart=PATH="__INSTALL_DIR__/venv/bin:$PATH" __INSTALL_DIR__/run
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 ExecReload=/bin/kill -HUP $MAINPID
